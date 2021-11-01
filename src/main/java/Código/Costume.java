@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.Reto_3.Reto_3_Ciclo4;
+package Código;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
@@ -31,7 +31,7 @@ public class Costume implements Serializable{
     private String name;
     private String brand;
     private Integer year;
-    private Integer description;
+    private String description;
     
     @ManyToOne
     @JoinColumn(name = "categoryId")
@@ -78,11 +78,11 @@ public class Costume implements Serializable{
         this.year = year;
     }
 
-    public Integer getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Integer description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

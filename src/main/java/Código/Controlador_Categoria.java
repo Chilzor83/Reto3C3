@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.Reto_3.Reto_3_Ciclo4;
+package Código;
 
 /**
  *
@@ -29,37 +29,37 @@ import org.springframework.web.bind.annotation.RestController;
  * @author USUARIO
  */
 @RestController
-@RequestMapping("/api/Costume")
+@RequestMapping("/api/Category")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 
-public class Controlador_Costume {
-     @Autowired
-    private Servicios_Costume servicio;
+public class Controlador_Categoria {
+      @Autowired
+    private Servicios_Categoria servicio;
     @GetMapping("/all")
-    public List<Costume> getCostumes(){
+    public List<Categoria> getCategoria(){
         return servicio.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Costume> getCostume(@PathVariable("id") int costumeId) {
-        return servicio.getCostume(costumeId);
+    public Optional<Categoria> getCategoria(@PathVariable("id") int categoriaId) {
+        return servicio.getCategoria(categoriaId);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Costume save(@RequestBody Costume costume) {
-        return servicio.save(costume);
+    public Categoria save(@RequestBody Categoria categoria) {
+        return servicio.save(categoria);
     }
-
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Costume update(@RequestBody Costume costume) {
-        return servicio.update(costume);
+    public Categoria update(@RequestBody Categoria categoria) {
+        return servicio.update(categoria);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int costumeId) {
-        return servicio.deleteCostume(costumeId);
-    } 
+    public boolean delete(@PathVariable("id") int categoriaId) {
+        return servicio.deletecategoria(categoriaId);
+    }
+    
 }

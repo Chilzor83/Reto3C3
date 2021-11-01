@@ -2,8 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.Reto_3.Reto_3_Ciclo4;
+package Código;
 
+/**
+ *
+ * @author Usuario
+ */
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,37 +29,37 @@ import org.springframework.web.bind.annotation.RestController;
  * @author USUARIO
  */
 @RestController
-@RequestMapping("/api/Message")
+@RequestMapping("/api/Costume")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 
-public class Controlador_Mensajes {
+public class Controlador_Costume {
      @Autowired
-    private Servicios_Mensajes servico;
+    private Servicios_Costume servicio;
     @GetMapping("/all")
-    public List<Mensajes> getMessages(){
-        return servico.getAll();
+    public List<Costume> getCostumes(){
+        return servicio.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Mensajes> getMessage(@PathVariable("id") int messageId) {
-        return servico.getMessage(messageId);
+    public Optional<Costume> getCostume(@PathVariable("id") int costumeId) {
+        return servicio.getCostume(costumeId);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Mensajes save(@RequestBody Mensajes message) {
-        return servico.save(message);
+    public Costume save(@RequestBody Costume costume) {
+        return servicio.save(costume);
     }
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Mensajes update(@RequestBody Mensajes message) {
-        return servico.update(message);
+    public Costume update(@RequestBody Costume costume) {
+        return servicio.update(costume);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int messageId) {
-        return servico.deleteMessage(messageId);
-    }
-    
+    public boolean delete(@PathVariable("id") int costumeId) {
+        return servicio.deleteCostume(costumeId);
+    } 
 }
