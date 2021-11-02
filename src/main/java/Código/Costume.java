@@ -35,7 +35,7 @@ public class Costume implements Serializable{
     
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    @JsonIgnoreProperties("costume")
+    @JsonIgnoreProperties("costumes")
     private Categoria category;
 
      @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costume")
@@ -43,7 +43,7 @@ public class Costume implements Serializable{
     private List<Mensajes> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "costume")
-    @JsonIgnoreProperties({"costume", "client"})
+    @JsonIgnoreProperties({"costume", "messages"})
     private List<Reservaciones> reservations;
 
     public Integer getId() {
